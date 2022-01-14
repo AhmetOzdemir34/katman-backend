@@ -32,10 +32,13 @@ mongoose.connect(process.env.MONGODB_ADDRESS,{useNewUrlParser: true, useUnifiedT
 })
 
 //routes
+app.get("/",(req,res)=>{
+    return res.json({message:"KATMAN AKTIF!"});
+});
 app.use("/index",mainRoute);
 app.use("/activation",activateRoute);
 
-const port = process.env.PORT || 5000;
+const port = process.env.PORT ;
 
 app.listen(port, ()=>{
     console.log(port+" is active!");
