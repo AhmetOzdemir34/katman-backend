@@ -134,9 +134,9 @@ const login = async (req,res) => {
   
         // send the token in a HTTP-only cookie
         return res.cookie("token", token, {
-            httpOnly: false,
+            httpOnly: true,
             secure: true, //bunu yazınca auth.js'te res.cookies degerleri alinamiyor
-            sameSite: "",
+            sameSite: "none",
         })
         .json({message:"Giriş Başarılı"}); // user: existingUser
     }catch(err){
@@ -147,7 +147,7 @@ const login = async (req,res) => {
 }
 const logout = async (req,res) => {
     return res.cookie("token","", {
-        httpOnly: false,
+        httpOnly: true,
         expires: new Date(0)
     }).json({message:"Çıkış Yapıldı."}).status(200);
 }
