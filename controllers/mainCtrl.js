@@ -87,7 +87,7 @@ const register = async (req, res) => {
             subject: "Katman!", // Subject line
             html: `
                 <h4>Katman hesabınızın artık aktif!</h4>
-                <p>Hesabınızı doğrulamak için lütfen bağlantıya <a href="http://localhost:5000/activation/${savedUser.activation}" target="_blank">tıklayınız</a></p>
+                <p>Hesabınızı doğrulamak için lütfen bağlantıya <a href="https://katman-backend.herokuapp.com/activation/${savedUser.activation}" target="_blank">tıklayınız</a></p>
                 </br>
                 <b>Iletişim Adresi</b></br>
                 Yer : <i>Suleyman Demirel Universitesi</i></br>
