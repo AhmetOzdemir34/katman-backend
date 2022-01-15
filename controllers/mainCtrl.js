@@ -86,7 +86,7 @@ const register = async (req, res) => {
             to: `${mail}`, // list of receivers
             subject: "Katman!", // Subject line
             html: `
-                <h4>Katman hesabınızın artık aktif!</h4>
+                <h4>Katman hesabınız artık aktif!</h4>
                 <p>Hesabınızı doğrulamak için lütfen bağlantıya <a href="https://katman-backend.herokuapp.com/activation/${savedUser.activation}" target="_blank">tıklayınız</a></p>
                 </br>
                 <b>Iletişim Adresi</b></br>
@@ -97,9 +97,9 @@ const register = async (req, res) => {
         });
         return res
         .cookie("token", token,{
-            httpOnly: false,
+            httpOnly: true,
             secure: true,
-            sameSite: "",
+            sameSite: "none",
         })
         .status(200)
         .json({message:"Kayıt Başarılı!"});
