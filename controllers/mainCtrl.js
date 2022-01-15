@@ -99,7 +99,7 @@ const register = async (req, res) => {
         .cookie("token", token,{
             httpOnly: false,
             secure: true,
-            sameSite: "none",
+            sameSite: "",
         })
         .status(200)
         .json({message:"Kayıt Başarılı!"});
@@ -136,7 +136,7 @@ const login = async (req,res) => {
         return res.cookie("token", token, {
             httpOnly: false,
             secure: true, //bunu yazınca auth.js'te res.cookies degerleri alinamiyor
-            sameSite: "none",
+            sameSite: "",
         })
         .json({message:"Giriş Başarılı"}); // user: existingUser
     }catch(err){
