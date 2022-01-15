@@ -97,7 +97,7 @@ const register = async (req, res) => {
         });
         return res
         .cookie("token", token,{
-            httpOnly: true,
+            httpOnly: false,
             secure: true,
             sameSite: "none",
         })
@@ -134,7 +134,7 @@ const login = async (req,res) => {
   
         // send the token in a HTTP-only cookie
         return res.cookie("token", token, {
-            httpOnly: true,
+            httpOnly: false,
             secure: true, //bunu yazınca auth.js'te res.cookies degerleri alinamiyor
             sameSite: "none",
         })
@@ -147,7 +147,7 @@ const login = async (req,res) => {
 }
 const logout = async (req,res) => {
     res.cookie("token","", {
-        httpOnly: true,
+        httpOnly: false,
         expires: new Date(0)
     }).json({message:"Çıkış Yapıldı."}).status(200);
 }
