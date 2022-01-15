@@ -211,7 +211,7 @@ const getCat = async (req,res) => {
 }
 const getSearch = async (req,res) => {
     const {search} = req.body;
-    const arr = await movieModel.find();
+    const arr = await movieModel.find({});
     
     const arr2 = arr.filter((a)=>{
         return a.name.indexOf(search.toLowerCase())>-1;
