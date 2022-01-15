@@ -146,7 +146,7 @@ const login = async (req,res) => {
     
 }
 const logout = async (req,res) => {
-    res.cookie("token","", {
+    return res.cookie("token","", {
         httpOnly: false,
         expires: new Date(0)
     }).json({message:"Çıkış Yapıldı."}).status(200);
