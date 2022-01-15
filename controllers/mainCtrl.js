@@ -201,7 +201,7 @@ const addFlash = async (req,res) => {
 }
 
 const getFlash = async (req,res) => {
-    const checkedFlash = await gundemModel.findOne({_id:"61d610f257146a1efe142409"});
+    const checkedFlash = await gundemModel.findOne({_id:"61e2223d4dd9e8445192adb2"});
 
     res.json(checkedFlash);
 }
