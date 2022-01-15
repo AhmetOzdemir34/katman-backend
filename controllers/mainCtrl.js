@@ -150,6 +150,7 @@ const logout = async (req,res) => {
         httpOnly: true,
         expires: new Date(0)
     }).json({message:"Çıkış Yapıldı."}).status(200);
+    // res.clearCookie('refreshtoken', { path: '/refresh_token' });
 }
 const loggedIn = async (req,res) =>{
     try {
