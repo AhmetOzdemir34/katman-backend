@@ -214,7 +214,7 @@ const getSearch = async (req,res) => {
     const arr = await movieModel.find({});
     
     const arr2 = arr.filter((a)=>{
-        return a.name.indexOf(search.toLowerCase())>-1;
+        return a.name.indexOf(search)>-1;
     })
     res.json({arr:arr2})
 }
