@@ -11,7 +11,7 @@ require("dotenv").config();
 //middlewares
 app.use(cookieParser());
 app.use(cors({
-    origin: ["https://katman-backend.herokuapp.com/"],
+    origin: ["https://katman-frontend.vercel.app/","https://katman-backend.herokuapp.com/"],
     credentials : true
 }));
 
