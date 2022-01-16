@@ -146,9 +146,9 @@ const login = async (req,res) => {
     
 }
 const logout = async (req,res) => {
-    return res.cookie("token","", {
+    return res.cookie("token","x", {
         httpOnly: true,
-        expires: new Date(0)
+        //expires: new Date(0)
     }).json({message:"Çıkış Yapıldı."}).status(200);
 }
 const loggedIn = async (req,res) =>{
