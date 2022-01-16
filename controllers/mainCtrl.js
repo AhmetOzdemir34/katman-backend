@@ -117,17 +117,17 @@ const login = async (req,res) => {
         const {mail, password} = req.body;
 
         if(!(validator.validate(mail))){
-            return res.status(200).json({message:"Mail adresinizi kontrol ediniz!"});
+            return res.status(404).json({message:"Mail adresinizi kontrol ediniz!"});
         }
         const existingUser = await User.findOne({mail});
         if(!existingUser){
-            return res.status(200).json({message:"Bilgilerinizi kontrol ediniz!"});
+            return res.status(404).json({message:"Bilgilerinizi kontrol ediniz!"});
         }
         existingUser.point = existingUser.point+1;
         await existingUser.save(); 
         const result = await bcrypt.compare(password, existingUser.password);
         if(!result){
-            return res.status(200).json({message:"Bilgilerinizi kontrol ediniz!"});
+            return res.status(404).json({message:"Bilgilerinizi kontrol ediniz!"});
         }
 
         const token = jwt.sign({username: existingUser._id,},process.env.JWT_SECRET);
@@ -140,7 +140,7 @@ const login = async (req,res) => {
         })
         .json({message:"Giriş Başarılı"}); // user: existingUser
     }catch(err){
-        return res.json({message:err.message});
+        return res.status(404).json({message:err.message});
 
     }
     
