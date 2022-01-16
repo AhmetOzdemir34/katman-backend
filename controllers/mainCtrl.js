@@ -146,11 +146,11 @@ const login = async (req,res) => {
     
 }
 const logout = async (req,res) => {
-    return res.cookie("token","", {
+    /*return res.cookie("token","", {
         httpOnly: true,
         expires: new Date(0)
-    }).json({message:"Çıkış Yapıldı."}).status(200);
-    // res.clearCookie('refreshtoken', { path: '/refresh_token' });
+    }).json({message:"Çıkış Yapıldı."}).status(200);*/
+    return res.clearCookie('token');
 }
 const loggedIn = async (req,res) =>{
     try {
