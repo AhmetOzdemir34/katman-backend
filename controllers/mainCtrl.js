@@ -163,7 +163,7 @@ const loggedIn = async (req,res) =>{
         //user.user kullanıcı id si tutuyor mongodan kullanıcı nesnesini al ve alttaki user ile yolla
         return res.json({access: true, user: sendUser});
       } catch (err) {
-        return res.json({access: false, user:err.message});
+        return res.json({access: false});
       }
 }
 
