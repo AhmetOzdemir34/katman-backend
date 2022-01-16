@@ -10,10 +10,7 @@ const activateRoute = require('./routes/activationRoute');
 require("dotenv").config();
 //middlewares
 app.use(cookieParser());
-app.use(cors({
-    origin: ["https://katman-frontend.vercel.app","https://katman-backend.herokuapp.com/"],
-    credentials : true
-}));
+app.use(cors());
 
 //express body parser
 app.use(express.json());
